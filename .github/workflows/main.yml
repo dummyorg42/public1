@@ -21,11 +21,9 @@ jobs:
             owner: thibaultduponchelle
             source-branch: main
             target-branch: main-anotherbranch
-            base: main
         - uses: tukasz/direct-merge-action@master
           with:
             GITHUB_TOKEN: ${{ secrets.TOKEN }}
             owner: thibaultduponchelle
             source-branch: anotherbranch
             target-branch: main-anotherbranch
-            base: main
