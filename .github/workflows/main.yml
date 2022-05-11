@@ -18,10 +18,12 @@ jobs:
         - uses: tukasz/direct-merge-action@master
           with:
             GITHUB_TOKEN: ${{ secrets.TOKEN }}
-            source-branch: thibaultduponchelle:main
+            owner: thibaultduponchelle
+            source-branch: main
             target-branch: main-anotherbranch
         - uses: tukasz/direct-merge-action@master
           with:
             GITHUB_TOKEN: ${{ secrets.TOKEN }}
-            source-branch: thibaultduponchelle:anotherbranch
+            owner: thibaultduponchelle
+            source-branch: anotherbranch
             target-branch: main-anotherbranch
