@@ -6,40 +6,22 @@ on:
 
 jobs:
   merge-master-to-develop:
-    name: Merge branch5 and branch6 -> branch5-branch6
+    name: Bundle !
     runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        branch:
-          - branch7
-          - branch8
-        base: 
-           main
-          
+
     steps:
         - uses: peterjgrainger/action-create-branch@v2.2.0
           env:
            GITHUB_TOKEN: ${{ secrets.TOKEN }}
           with:
-            branch: 'branch5-branch6'
+            branch: 'main-anotherbranch'
         - uses: tukasz/direct-merge-action@master
           with:
             GITHUB_TOKEN: ${{ secrets.TOKEN }}
-            source-branch: branch5
-            target-branch: branch5-branch6
+            source-branch: thibaultduponchelle:main
+            target-branch: main-anotherbranch
         - uses: tukasz/direct-merge-action@master
           with:
             GITHUB_TOKEN: ${{ secrets.TOKEN }}
-            source-branch: branch6
-            target-branch: branch5-branch6
-        - name: Checkout repository
-          uses: actions/checkout@v3
-        - name: Create Pull Request
-          uses: peter-evans/create-pull-request@v4
-          with:
-            token: ${{ secrets.TOKEN }}
-            commit-message: Merge bundle
-            branch: branch5-branch6
-            title: 'My bundle'
-            base: main
+            source-branch: thibaultduponchelle:anotherbranch
+            target-branch: main-anotherbranch
